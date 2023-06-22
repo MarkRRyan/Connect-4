@@ -22,7 +22,7 @@ function changeColor(coord) {
         if (spaceRow[i].children[column].style.backgroundColor == 'white'){            
             row.push(spaceRow[i].children[column]);
             if (currentPlayer === playerOne) {
-                document.getElementById('playerText').innerText = `${currentPlayer}'s Turn`
+                document.getElementById('playerText').innerText = `Green's Turn`
                 row[0].style.backgroundColor = 'rgb(0, 174, 255)';
                 if (hasPlayerWon()){
                     return document.getElementById('playerText').innerText ='Blue is the Winner!!!';
@@ -33,7 +33,7 @@ function changeColor(coord) {
                 }
                 
             } else {
-                document.getElementById('playerText').innerText = `${currentPlayer}'s Turn`
+                document.getElementById('playerText').innerText = `Blue's Turn`
                 row[0].style.backgroundColor = 'rgb(14, 192, 14)';
                 if (hasPlayerWon()) {
                     return document.getElementById('playerText').innerText = 'Green is the Winner!!!';
@@ -98,5 +98,5 @@ restartBtn.addEventListener('click', () => {
         gameSlot.style.backgroundColor = 'white';
     });
     return (currentPlayer === 1),
-    document.getElementById('playerText').innerText = ' '
+    document.getElementById('playerText').innerText = 'Click on a Spot to begin'
 });
