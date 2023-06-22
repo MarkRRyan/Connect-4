@@ -38,3 +38,57 @@ body {
 .reset:hover {
     background-color: rgba(124, 215, 183, 0.807);
   }
+
+/* Side Bar CSS */
+.side-menu-container {
+    position: relative;
+  }
+  
+  .hamburger-menu {
+    cursor: pointer;
+    padding: 10px;
+  }
+  
+  .hamburger {
+    width: 30px;
+    height: 4px;
+    background-color: #000;
+    margin: 6px 0;
+  }
+  
+  .side-menu {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 300px;
+    height: 100%;
+    transition: left 0.3s ease;
+    background-color: white;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
+  }
+  
+  .side-menu.active {
+    left: 0;
+  }
+  
+  .side-menu ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .side-menu h3 {
+    padding: 10px;
+  }
+  
+  .side-menu ul li {
+    padding: 10px;
+  }
+  
+  .side-menu ul li a {
+    text-decoration: none;
+    color: #000;
+  }
+
+  .linkedin-icon {
+    height: 20px;
+  }
