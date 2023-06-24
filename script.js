@@ -14,20 +14,20 @@ const changeColor = (coord) => {
       if (spaceRow[i].children[column].style.backgroundColor == 'white') {
         row.push(spaceRow[i].children[column]);
         if (currentPlayer === playerOne) {
-          document.getElementById('playerText').innerText = `Green's Turn`;
-          row[0].style.backgroundColor = 'rgb(0, 174, 255)';
+          document.getElementById('playerText').innerText = `Seafoam's Turn`;
+          row[0].style.backgroundColor = 'rgb(253, 165, 2)';
           if (hasPlayerWon()) {
-            return (document.getElementById('playerText').innerText = 'Blue is the Winner!!!');
+            return (document.getElementById('playerText').innerText = 'Orange is the Winner!!!');
           } else if (draw()) {
             return (document.getElementById('playerText').innerText = `It's a Draw!`);
           } else {
             return (currentPlayer = playerTwo);
           }
         } else {
-          document.getElementById('playerText').innerText = `Blue's Turn`;
-          row[0].style.backgroundColor = 'rgb(14, 192, 14)';
+          document.getElementById('playerText').innerText = `Orange's Turn`;
+          row[0].style.backgroundColor = '#4ea7a6';
           if (hasPlayerWon()) {
-            return (document.getElementById('playerText').innerText = 'Green is the Winner!!!');
+            return (document.getElementById('playerText').innerText = 'Seafoam is the Winner!!!');
           } else if (draw()) {
             return (document.getElementById('playerText').innerText = `It's a Draw!`);
           } else {
