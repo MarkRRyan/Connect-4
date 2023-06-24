@@ -6,51 +6,49 @@ const playerOne = 'Blue'
 const playerTwo = 'Green'
 let currentPlayer = playerOne;
 
-// document.getElementById('playerText').innerText = `${currentPlayer} Players Turn`
-// THis is a comment
+const changeColor = (coord) => {
+    let column = coord.target.cellIndex;
+    let row = [];
+  
+    for (let i = 5; i > -1; i--) {
+      if (spaceRow[i].children[column].style.backgroundColor == 'white') {
+        row.push(spaceRow[i].children[column]);
+        if (currentPlayer === playerOne) {
+          document.getElementById('playerText').innerText = `Green's Turn`;
+          row[0].style.backgroundColor = 'rgb(0, 174, 255)';
+          if (hasPlayerWon()) {
+            return (document.getElementById('playerText').innerText = 'Blue is the Winner!!!');
+          } else if (draw()) {
+            return (document.getElementById('playerText').innerText = `It's a Draw!`);
+          } else {
+            return (currentPlayer = playerTwo);
+          }
+        } else {
+          document.getElementById('playerText').innerText = `Blue's Turn`;
+          row[0].style.backgroundColor = 'rgb(14, 192, 14)';
+          if (hasPlayerWon()) {
+            return (document.getElementById('playerText').innerText = 'Green is the Winner!!!');
+          } else if (draw()) {
+            return (document.getElementById('playerText').innerText = `It's a Draw!`);
+          } else {
+            return (currentPlayer = playerOne);
+          }
+        }
+      }
+    }
+  };
+  
 
 Array.prototype.forEach.call(spaceCell, (cell) => {
     cell.addEventListener('click', changeColor);
     cell.style.backgroundColor = 'white';
 });
 
-function changeColor(coord) {
-    let column = coord.target.cellIndex;
-    let row = [];
-
-    for (let i = 5; i > -1; i--) {
-        if (spaceRow[i].children[column].style.backgroundColor == 'white'){            
-            row.push(spaceRow[i].children[column]);
-            if (currentPlayer === playerOne) {
-                document.getElementById('playerText').innerText = `Green's Turn`
-                row[0].style.backgroundColor = 'rgb(0, 174, 255)';
-                if (hasPlayerWon()){
-                    return document.getElementById('playerText').innerText ='Blue is the Winner!!!';
-                } else if (draw()) {
-                    return document.getElementById('playerText').innerText = `It's a Draw!`;
-                } else {
-                    return currentPlayer = playerTwo;
-                }
-                
-            } else {
-                document.getElementById('playerText').innerText = `Blue's Turn`
-                row[0].style.backgroundColor = 'rgb(14, 192, 14)';
-                if (hasPlayerWon()) {
-                    return document.getElementById('playerText').innerText = 'Green is the Winner!!!';
-                } else if (draw()) {
-                    return document.getElementById('playerText').innerText = `It's a Draw!`;
-                } else {
-                    return currentPlayer = playerOne;
-                }
-            }
-        }
-    }
-}
-function inRow(one, two, three, four){
+const inRow = (one, two, three, four) => {
     return (one === two && one === three && one === four && one !== 'white');
 }
 
-function hasPlayerWon(){
+const hasPlayerWon = () => {
     for (let i = 0; i < 7; i++){
         for (let row = 0; row < 3; row++){
             if (inRow(spaceRow[row].children[i].style.backgroundColor, spaceRow[row+1].children[i].style.backgroundColor,
@@ -81,7 +79,7 @@ function hasPlayerWon(){
             }
         }
     }
-function draw() {
+const draw = () => {
     let fullSpaces = []
     for (i = 0; i < spaceCell.length; i++) {
         if (spaceCell[i].style.backgroundColor !== 'white') {
@@ -121,3 +119,4 @@ document.addEventListener('click', function(event) {
     // hamburgerMenu.style.display = 'block'
   }
 });
+
